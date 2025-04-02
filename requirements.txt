@@ -1,0 +1,8 @@
+flask
+google-generativeai
+opencv-python
+numpy
+pytesseract
+pillow
+tesseract
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution - Math Problem Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- MathJax for rendering equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="math-solver-card">
+            <div class="card-header">
+                <h1>Solution</h1>
+                <p class="subtitle">Step-by-step explanation</p>
+                <a href="/" class="back-button">← Back</a>
+            </div>
+            
+            <div class="card-body">
+                <div class="problem-section">
+                    <h3>Problem Statement</h3>
+                    <div class="problem-box problem-statement">
+                        {{ problem_statement | safe }}
+                    </div>
+                </div>
+                
+                <div class="solution-section">
+                    <h3>Solution</h3>
+                    <div class="solution-box">
+                        {{ solution_steps | safe }}
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="/" class="secondary-button">Solve Another Problem</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Run MathJax again to render any equations that might have been added after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>

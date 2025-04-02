@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Problem Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- MathJax for rendering equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="math-solver-card">
+            <div class="card-header">
+                <h1>Math Problem Solver</h1>
+                <p class="subtitle">Solve any math problem with step-by-step solutions</p>
+            </div>
+            
+            <div class="card-body">
+                <form id="mathForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="question_text">Enter your math problem:</label>
+                        <textarea id="question_text" name="question_text" rows="4" placeholder="e.g., Solve for x: 2x + 3 = 15"></textarea>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+                    
+                    <div class="form-group file-upload-container">
+                        <label for="question_image" class="file-upload-label">
+                            <span class="file-upload-icon">📷</span>
+                            <span class="file-upload-text">Upload image</span>
+                        </label>
+                        <input type="file" id="question_image" name="question_image" accept="image/*">
+                        <div id="file-name" class="file-name"></div>
+                    </div>
+                    
+                    <div id="error-message" class="error-message hidden"></div>
+                    
+                    <button type="submit" class="primary-button">Solve Problem</button>
+                </form>
+                
+                <div id="loading" class="loading-container hidden">
+                    <div class="spinner"></div>
+                    <p>Solving your problem...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="example-box">
+            <h4>What can you solve?</h4>
+            <div class="example-grid">
+                <div class="example-item">
+                    <h5>Algebra</h5>
+                    <p>Equations, Inequalities, Functions</p>
+                </div>
+                <div class="example-item">
+                    <h5>Calculus</h5>
+                    <p>Derivatives, Integrals, Limits</p>
+                </div>
+                <div class="example-item">
+                    <h5>More</h5>
+                    <p>Statistics, Geometry, Word Problems</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,727 @@
+:root {
+    --primary-color: #4a6cf7;
+    --secondary-color: #25d366;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --border-color: #e0e0e0;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --hover-color: #3b5ce4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fb;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Card styling */
+.math-solver-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), #6e8afb);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.card-header h1 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+}
+
+.card-header .subtitle {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 8px;
+    display: block;
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.25);
+}
+
+/* Divider styling */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #718096;
+    font-weight: 500;
+}
+
+.divider:before,
+.divider:after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+    margin: 0 10px;
+}
+
+/* File upload styling */
+.file-upload-container {
+    text-align: center;
+    position: relative;
+}
+
+.file-upload-label {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #edf2ff;
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.file-upload-label:hover {
+    background-color: #dce6ff;
+}
+
+.file-upload-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="file"] {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.file-name {
+    font-size: 0.875rem;
+    color: #4a5568;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+/* Button styling */
+.primary-button, .secondary-button, .back-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    font-size: 16px;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.primary-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(59, 92, 228, 0.2);
+}
+
+.secondary-button {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    margin-right: 10px;
+}
+
+.secondary-button:hover {
+    background-color: #cbd5e0;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Error message */
+.error-message {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #ffebee;
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Loading animation */
+.loading-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    margin: 10px auto;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--primary-color);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Example boxes */
+.example-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.example-box h4 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.example-item {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    text-align: center;
+    border: 1px solid #edf2f7;
+}
+
+.example-item h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.example-item p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Results page styling */
+.result-card {
+    margin-top: 20px;
+}
+
+.problem-section, .solution-section {
+    margin-bottom: 30px;
+}
+
+.problem-section h3, .solution-section h3 {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.problem-box {
+    background-color: #f7fafc;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #edf2f7;
+}
+
+.solution-box {
+    background-color: #f7fafc;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #edf2f7;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Make equations look nice */
+.solution-box .math {
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+/* Step labels in solution */
+.step {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    .example-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+:root {
+    --primary-color: #4a6cf7;
+    --secondary-color: #25d366;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --border-color: #e0e0e0;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --hover-color: #3b5ce4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fb;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Card styling */
+.math-solver-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), #6e8afb);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.card-header h1 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+}
+
+.card-header .subtitle {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 8px;
+    display: block;
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.25);
+}
+
+/* Divider styling */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #718096;
+    font-weight: 500;
+}
+
+.divider:before,
+.divider:after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+    margin: 0 10px;
+}
+
+/* File upload styling */
+.file-upload-container {
+    text-align: center;
+    position: relative;
+}
+
+.file-upload-label {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #edf2ff;
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.file-upload-label:hover {
+    background-color: #dce6ff;
+}
+
+.file-upload-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="file"] {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.file-name {
+    font-size: 0.875rem;
+    color: #4a5568;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+/* Button styling */
+.primary-button, .secondary-button, .back-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    font-size: 16px;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.primary-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(59, 92, 228, 0.2);
+}
+
+.secondary-button {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    margin-right: 10px;
+}
+
+.secondary-button:hover {
+    background-color: #cbd5e0;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Error message */
+.error-message {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #ffebee;
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Loading animation */
+.loading-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    margin: 10px auto;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--primary-color);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Example boxes */
+.example-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.example-box h4 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.example-item {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    text-align: center;
+    border: 1px solid #edf2f7;
+}
+
+.example-item h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.example-item p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Results page styling */
+.result-card {
+    margin-top: 20px;
+}
+
+.problem-section, .solution-section {
+    margin-bottom: 30px;
+}
+
+.problem-section h3, .solution-section h3 {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.problem-box {
+    background-color: #f7fafc;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #edf2f7;
+}
+
+.solution-box {
+    background-color: #f7fafc;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #edf2f7;
+    max-height: 600px;
+    overflow-y: auto;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* Step styling */
+.step {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-top: 22px;
+    margin-bottom: 10px;
+    background-color: #f0f4ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Problem statement styling */
+.problem-statement {
+    font-weight: 500;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+/* Make equations look nice */
+.solution-box .MathJax {
+    margin: 10px 0;
+}
+
+/* Final answer styling */
+.final-answer {
+    background-color: #f0f9ff;
+    border: 1px solid #91d5ff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 25px;
+    font-weight: 500;
+}
+
+/* Highlight important results */
+.important-result {
+    background-color: #e6f7ff;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 15px 0;
+    border-left: 3px solid #1890ff;
+}
+
+/* Bullet points */
+.solution-box ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.solution-box li {
+    margin-bottom: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    .example-grid {
+        grid-template-columns: 1fr;
+    }
+}
